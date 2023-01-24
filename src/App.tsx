@@ -1,11 +1,11 @@
 import React from 'react';
 import './GlobalStyles/Global.css';
-import HomeScreen from './Views/OnBoard/Home/HomeScreen';
+import MainScreen from './Views/OnBoard/Main/MainScreen';
 
 function App() {
   return (
   <div className="theme font-theme">
-    <HomeScreen />
+    <MainScreen />
   </div> 
   )
 }
