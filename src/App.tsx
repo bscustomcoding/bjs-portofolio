@@ -1,9 +1,11 @@
 import React from 'react';
-import './GlobalStyles/Global.css';
+import { TheemeProvider } from './StateManagement/ThemeProvider';
 import MainScreen from './Views/OnBoard/Main/MainScreen';
 
 function App() {
-  return  <MainScreen />
+  return  <TheemeProvider>
+    <MainScreen />
+  </TheemeProvider>
 }
 
 export default App;
