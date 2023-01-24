@@ -3,11 +3,7 @@ import './GlobalStyles/Global.css';
 import MainScreen from './Views/OnBoard/Main/MainScreen';
 
 function App() {
-  return (
-  <div className="theme font-theme">
-    <MainScreen />
-  </div> 
-  )
+  return  <MainScreen />
 }
 
 export default App;
