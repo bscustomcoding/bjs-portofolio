@@ -14,16 +14,16 @@ export const TheemeProvider= ({children}) => {
           background: '#7FB285'
       },
       sideNav: {
-          background: theeme ? '#282828' : '#fff' 
+          background: theeme ? '#282828' : '#f0eee4' 
       },
       background: {
-        primary: theeme ? '#282828' : '#fff' 
+        primary: theeme ? '#282828' : '#f0eee4' 
       },
       text: {
-        primary: theeme ?  '#fff'  : '#282828',
+        primary: theeme ?  '#f0eee4'  : '#282828',
       },
       divider: {
-        primary: theeme ?  '#F5F5F5'  : '#D3D3D3',
+        primary: theeme ?  '#f0eee4'  : '#D3D3D3',
       },
       action: {
         active: '#001E3C',
