@@ -76,7 +76,9 @@ export default function MainScreen() {
           Welcome to my Portofolio 
         </Typography>
         <Typography paragraph style={{color: themePalette.palette.text.primary }}>
-          This is a application for sharing React/Typescript programming
+          This is a Portofolio under construction.
+
+          React/TypeScript
         </Typography>
       </Box>
     </Box>
