@@ -17,6 +17,9 @@ import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { IconButton } from '@mui/material';
 import { TheemeContext } from '../../../StateManagement/ThemeProvider';
+import { Route, Routes } from "react-router-dom";
+import { InfoPage } from '../Info/InfoScreen';
+import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
 
 
 const drawerWidth = '30vw';
@@ -72,15 +75,22 @@ export default function MainScreen() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', bgcolor: themePalette.palette.background }}>
         <Toolbar style={{color: themePalette.palette.text.primary }}/>
-        <Typography paragraph style={{color: themePalette.palette.text.primary }}>
-          Welcome to my Portofolio 
-        </Typography>
-        <Typography paragraph style={{color: themePalette.palette.text.primary }}>
-          This is a Portofolio under construction.
-
-          React/TypeScript
-        </Typography>
+        <Routes>
+      <Route
+        path="/"
+        element={
+            <InfoPage />
+        }
+      />
+      <Route
+        path="/time-sheet"
+        element={
+            <TimeSheet />
+        }
+      />
+    </Routes>
       </Box>
     </Box>
   );
 }
+
