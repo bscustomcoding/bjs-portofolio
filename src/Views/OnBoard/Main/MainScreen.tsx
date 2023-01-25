@@ -73,7 +73,7 @@ export default function MainScreen() {
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', bgcolor: themePalette.palette.background }}>
         <Toolbar style={{color: themePalette.palette.text.primary }}/>
         <Typography paragraph style={{color: themePalette.palette.text.primary }}>
-          Velcome to my Portofolio 
+          Welcome to my Portofolio 
         </Typography>
         <Typography paragraph style={{color: themePalette.palette.text.primary }}>
           This is a application for sharing React/Typescript programming
