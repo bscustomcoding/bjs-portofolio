@@ -22,7 +22,7 @@ import { TheemeContext } from '../../../StateManagement/ThemeProvider';
 const drawerWidth = '30vw';
 
 export default function MainScreen() {
-  const {themePalette, theeme, setTheeme } = React.useContext(TheemeContext);
+  const {themePalette, darkMode, setDarkMode } = React.useContext(TheemeContext);
   return (
     <Box sx={{ display: 'flex', bgcolor: themePalette.palette.background.primary }}>
       <CssBaseline />
@@ -32,7 +32,7 @@ export default function MainScreen() {
           <SchoolIcon />  Bjs Portofolio 
           </Typography>
           <Typography variant="h6" noWrap component="div" sx={{ position: 'absolute', right: '20px', top: '20px'}}>
-            <IconButton onClick={() => setTheeme(!theeme)}>
+            <IconButton onClick={() => setDarkMode(!darkMode)}>
               <DarkModeIcon style={{color: themePalette.palette.text.primary }} /> 
             </IconButton>
           </Typography>
