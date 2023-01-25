@@ -1,6 +1,5 @@
 import React from "react";
 import { TheemeContext } from '../../../StateManagement/ThemeProvider';
-import { Route, Routes } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
 export const InfoPage = () => {
