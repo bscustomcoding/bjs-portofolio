@@ -24,6 +24,7 @@ import {
 } from "react-router-dom";
 import { InfoPage } from '../Info/InfoScreen';
 import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
+import { DataProvider } from '../../../StateManagement/DataProvider';
 
 
 const drawerWidth = '30vw';
@@ -81,6 +82,7 @@ export default function MainScreen() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', bgcolor: themePalette.palette.background }}>
         <Toolbar style={{color: themePalette.palette.text.primary }}/>
+        <DataProvider>
         <Routes>
           <Route
             index
@@ -93,6 +95,7 @@ export default function MainScreen() {
             element={<TimeSheet />}
          />
     </Routes>
+    </DataProvider>
       </Box>
     </Box>
   );
