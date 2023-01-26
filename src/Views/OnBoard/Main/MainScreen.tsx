@@ -20,7 +20,6 @@ import { TheemeContext } from '../../../StateManagement/ThemeProvider';
 import {
   Routes,
   Route,
-  Link,
   useNavigate
 } from "react-router-dom";
 import { InfoPage } from '../Info/InfoScreen';
@@ -30,8 +29,9 @@ import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
 const drawerWidth = '30vw';
 
 export default function MainScreen() {
-  const navigate = useNavigate();
   const {themePalette, darkMode, setDarkMode } = React.useContext(TheemeContext);
+  const navigate = useNavigate();
+  
   return (
     <Box sx={{ display: 'flex', bgcolor: themePalette.palette.background.primary }}>
       <CssBaseline />
