@@ -20,7 +20,8 @@ import { TheemeContext } from '../../../StateManagement/ThemeProvider';
 import {
   Routes,
   Route,
-  Link
+  Link,
+  useNavigate
 } from "react-router-dom";
 import { InfoPage } from '../Info/InfoScreen';
 import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
@@ -29,6 +30,7 @@ import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
 const drawerWidth = '30vw';
 
 export default function MainScreen() {
+  const navigate = useNavigate();
   const {themePalette, darkMode, setDarkMode } = React.useContext(TheemeContext);
   return (
     <Box sx={{ display: 'flex', bgcolor: themePalette.palette.background.primary }}>
@@ -57,7 +59,7 @@ export default function MainScreen() {
         <Box sx={{ overflow: 'auto', height: '90vh' }} style={{ backgroundColor: themePalette.palette.sideNav.background }}>
           <List >
               <ListItem  disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => navigate("")}>
                   <ListItemIcon>
                     <PersonIcon style={{color: themePalette.palette.text.primary }} />
                   </ListItemIcon>
@@ -66,14 +68,13 @@ export default function MainScreen() {
               </ListItem>
               <Divider style={{backgroundColor: themePalette.palette.divider.primary }} />
               <ListItem  disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => navigate("time-sheet")}>
                   <ListItemIcon>
                     <PendingActionsIcon style={{color: themePalette.palette.text.primary }}/>
                   </ListItemIcon>
                   <ListItemText primary={"TimeSheet"} style={{color: themePalette.palette.text.primary }}/>
                 </ListItemButton>
               </ListItem>
-              <Link to="time"> time</Link>
           </List>
           <Divider style={{backgroundColor: themePalette.palette.divider.primary}}  />
         </Box>
@@ -88,7 +89,7 @@ export default function MainScreen() {
             }
           />
           <Route
-            path="time"
+            path="time-sheet"
             element={<TimeSheet />}
          />
     </Routes>
