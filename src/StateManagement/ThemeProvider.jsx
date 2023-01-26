@@ -11,7 +11,7 @@ export const TheemeProvider= ({children}) => {
    const themePalette = createTheme ({
     palette: {
       header: {
-          background: '#7FB285'
+          background: '#50C878'
       },
       sideNav: {
           background: darkMode ? '#424242' : '#f0eee4' 
