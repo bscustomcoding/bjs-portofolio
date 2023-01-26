@@ -14,10 +14,10 @@ export const TheemeProvider= ({children}) => {
           background: '#7FB285'
       },
       sideNav: {
-          background: darkMode ? '#282828' : '#f0eee4' 
+          background: darkMode ? '#424242' : '#f0eee4' 
       },
       background: {
-        primary: darkMode ? '#282828' : '#f0eee4' 
+        primary: darkMode ? '#424242' : '#f0eee4' 
       },
       text: {
         primary: darkMode ?  '#f0eee4'  : '#282828',

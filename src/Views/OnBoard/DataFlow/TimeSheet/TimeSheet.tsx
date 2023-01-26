@@ -48,17 +48,17 @@ export default function TimeSheet() {
       "&": {
         color: themePalette.palette.text.primary
       }
-    }}>{row.time.hours} - {row.time.min}</TableCell>
+    }}>{row.time.hours}h - {row.time.min}m</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
      <TablePagination
-     style={{ borderTop: '1px solid' }}
+     style={{ borderTop: '1px solid', color: themePalette.palette.text.primary }}
      sx={{
       "&": {
-        color: themePalette.palette.text.primary
+        color: themePalette.palette.divider.primary
       }
     }}
      rowsPerPageOptions={[5, 10, 25]}
