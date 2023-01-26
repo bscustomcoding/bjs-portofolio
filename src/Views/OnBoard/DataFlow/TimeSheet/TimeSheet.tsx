@@ -55,12 +55,7 @@ export default function TimeSheet() {
       </Table>
     </TableContainer>
      <TablePagination
-     style={{ borderTop: '1px solid', color: themePalette.palette.text.primary }}
-     sx={{
-      "&": {
-        color: themePalette.palette.divider.primary
-      }
-    }}
+     style={{ borderTop: '1px solid', color: themePalette.palette.divider.primary }}
      rowsPerPageOptions={[5, 10, 25]}
      component="div"
      count={timeSheets.length}

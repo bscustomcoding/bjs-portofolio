@@ -23,7 +23,7 @@ export const TheemeProvider= ({children}) => {
         primary: darkMode ?  '#f0eee4'  : '#282828',
       },
       divider: {
-        primary: darkMode ?  '#f0eee4'  : '#D3D3D3',
+        primary: darkMode ?  '#f0eee4'  : '#bdbdbd',
       },
       action: {
         active: '#001E3C',
