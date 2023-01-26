@@ -17,7 +17,11 @@ import PendingActionsIcon from '@mui/icons-material/PendingActions';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { IconButton } from '@mui/material';
 import { TheemeContext } from '../../../StateManagement/ThemeProvider';
-import { Route, Routes } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 import { InfoPage } from '../Info/InfoScreen';
 import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
 
@@ -69,6 +73,7 @@ export default function MainScreen() {
                   <ListItemText primary={"TimeSheet"} style={{color: themePalette.palette.text.primary }}/>
                 </ListItemButton>
               </ListItem>
+              <Link to="time"> time</Link>
           </List>
           <Divider style={{backgroundColor: themePalette.palette.divider.primary}}  />
         </Box>
@@ -76,18 +81,16 @@ export default function MainScreen() {
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', bgcolor: themePalette.palette.background }}>
         <Toolbar style={{color: themePalette.palette.text.primary }}/>
         <Routes>
-      <Route
-        path="/"
-        element={
-            <InfoPage />
-        }
-      />
-      <Route
-        path="/time-sheet"
-        element={
-            <TimeSheet />
-        }
-      />
+          <Route
+            index
+            element={
+                <InfoPage />
+            }
+          />
+          <Route
+            path="time"
+            element={<TimeSheet />}
+         />
     </Routes>
       </Box>
     </Box>
