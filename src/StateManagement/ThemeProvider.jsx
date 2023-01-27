@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import { createTheme } from '@mui/system';
+import { createTheme } from '@mui/material/styles';
 
 export const TheemeContext = createContext();
 
@@ -8,31 +8,11 @@ export const TheemeContext = createContext();
 export const TheemeProvider= ({children}) => {
    const [darkMode, setDarkMode] = useState(false);
 
-   const themePalette = createTheme ({
+   const theme = createTheme({
     palette: {
-      header: {
-          background: '#50C878'
-      },
-      sideNav: {
-          background: darkMode ? '#424242' : '#f0eee4' 
-      },
-      background: {
-        primary: darkMode ? '#424242' : '#f0eee4' 
-      },
-      text: {
-        primary: darkMode ?  '#f0eee4'  : '#282828',
-      },
-      divider: {
-        primary: darkMode ?  '#f0eee4'  : '#bdbdbd',
-      },
-      action: {
-        active: '#001E3C',
-      },
-      success: {
-        dark: '#009688',
-      },
+      mode: darkMode ? 'dark' : 'light',
     },
-  });
+  })
 
   return (
     <TheemeContext.Provider
@@ -40,7 +20,7 @@ export const TheemeProvider= ({children}) => {
         {
            darkMode,
            setDarkMode,
-           themePalette
+           theme
         }
       }>
       {children}

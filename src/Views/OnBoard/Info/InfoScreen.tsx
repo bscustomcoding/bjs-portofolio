@@ -1,23 +1,23 @@
 import React from "react";
-import { TheemeContext } from '../../../StateManagement/ThemeProvider';
 import Typography from "@mui/material/Typography";
+import { Container, CssBaseline, Paper } from "@mui/material";
 
 export const InfoPage = () => {
-    const { themePalette } = React.useContext(TheemeContext);
   return (
-    <div>
+    <Container>
+       <CssBaseline />
       <Typography
-        paragraph
-        style={{ color: themePalette.palette.text.primary }}
+        variant="h1"
+        sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
       >
         Welcome to my Portofolio
       </Typography>
       <Typography
         paragraph
-        style={{ color: themePalette.palette.text.primary }}
+        sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
       >
-        This is a Portofolio under construction. React/TypeScript
+        This is a Portofolio under construction. React/TypeScript/Mui
       </Typography>
-    </div>
+    </Container>
   );
 };

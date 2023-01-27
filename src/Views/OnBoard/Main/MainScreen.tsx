@@ -30,20 +30,20 @@ import { DataProvider } from '../../../StateManagement/DataProvider';
 const drawerWidth = '30vw';
 
 export default function MainScreen() {
-  const {themePalette, darkMode, setDarkMode } = React.useContext(TheemeContext);
+  const { darkMode, setDarkMode } = React.useContext(TheemeContext);
   const navigate = useNavigate();
   
   return (
-    <Box sx={{ display: 'flex', bgcolor: themePalette.palette.background.primary }}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, bgcolor: themePalette.palette.header.background  }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
           <Typography variant="h6" noWrap component="div">
           <SchoolIcon />  Bjs Portofolio 
           </Typography>
           <Typography variant="h6" noWrap component="div" sx={{ position: 'absolute', right: '20px', top: '20px'}}>
             <IconButton onClick={() => setDarkMode(!darkMode)}>
-              <DarkModeIcon style={{color: themePalette.palette.text.primary }} /> 
+              <DarkModeIcon /> 
             </IconButton>
           </Typography>
         </Toolbar>
@@ -57,31 +57,31 @@ export default function MainScreen() {
         }}
       >
         <Toolbar />
-        <Box sx={{ overflow: 'auto', height: '90vh' }} style={{ backgroundColor: themePalette.palette.sideNav.background }}>
+        <Box sx={{ overflow: 'auto', height: '90vh' }}>
           <List >
               <ListItem  disablePadding>
                 <ListItemButton onClick={() => navigate("")}>
                   <ListItemIcon>
-                    <PersonIcon style={{color: themePalette.palette.text.primary }} />
+                    <PersonIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"A little about me"} style={{color: themePalette.palette.text.primary }}/>
+                  <ListItemText primary={"A little about me"}/>
                 </ListItemButton>
               </ListItem>
-              <Divider style={{backgroundColor: themePalette.palette.divider.primary }} />
+              <Divider />
               <ListItem  disablePadding>
                 <ListItemButton onClick={() => navigate("time-sheet")}>
                   <ListItemIcon>
-                    <PendingActionsIcon style={{color: themePalette.palette.text.primary }}/>
+                    <PendingActionsIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"TimeSheet"} style={{color: themePalette.palette.text.primary }}/>
+                  <ListItemText primary={"TimeSheet"} />
                 </ListItemButton>
               </ListItem>
           </List>
-          <Divider style={{backgroundColor: themePalette.palette.divider.primary}}  />
+          <Divider />
         </Box>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh', bgcolor: themePalette.palette.background }}>
-        <Toolbar style={{color: themePalette.palette.text.primary }}/>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh' }}>
+        <Toolbar/>
         <DataProvider>
         <Routes>
           <Route
