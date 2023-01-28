@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Container, CssBaseline, Paper } from "@mui/material";
+import { Container, CssBaseline } from "@mui/material";
 
 export const InfoPage = () => {
   return (

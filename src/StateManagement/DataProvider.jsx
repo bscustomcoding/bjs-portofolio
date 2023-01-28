@@ -1,331 +1,254 @@
-import React, {createContext, useState} from 'react';
-import { createTheme } from '@mui/system';
+import React, { createContext } from "react";
 
 export const DataContext = createContext();
 
+export const DataProvider = ({ children }) => {
+  const [timeSheets, setTimeSheets] = React.useState([
+    {
+      id: 1,
+      firstName: "Bjørn",
+      lastName: "Sveia",
 
-
-export const DataProvider= ({children}) => {
-    const [timeSheets, setTimeSheets] = React.useState([
-        {
-          id: 1,
-          name: {
-            firstName: "Bjørn",
-            lastName: "Sveia",
-          },
-          time: {
-            hours: 1,
-            min: 20,
-          },
-          workAddress: {
-            postNr: 3131,
-            streetName: "hjulveien",
-            streetNr: 32,
-          },
-          description: "developing table",
-        },
-        {
-          id: 2,
-          name: {
-            firstName: "Grete",
-            lastName: "Grenna",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "jej",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 3,
-          name: {
-            firstName: "Johan",
-            lastName: "Johansen",
-          },
-          time: {
-            hours: 3,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 4,
-          name: {
-            firstName: "Jenny",
-            lastName: "Hansen",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 5,
-          name: {
-            firstName: "Roar",
-            lastName: "Elvisen",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 6,
-          name: {
-            firstName: "Grete",
-            lastName: "Grenna",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 7,
-          name: {
-            firstName: "Ronny",
-            lastName: "hansen",
-          },
-          time: {
-            hours: 4,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 8,
-          name: {
-            firstName: "Roy",
-            lastName: "Hansen",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 9,
-          name: {
-            firstName: "Olga",
-            lastName: "Pettersen",
-          },
-          time: {
-            hours: 7,
-            min: 15,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 10,
-          name: {
-            firstName: "Bjørn",
-            lastName: "Sveia",
-          },
-          time: {
-            hours: 1,
-            min: 20,
-          },
-          workAddress: {
-            postNr: 3131,
-            streetName: "hjulveien",
-            streetNr: 32,
-          },
-          description: "developing table",
-        },
-        {
-          id: 11,
-          name: {
-            firstName: "Grete",
-            lastName: "Grenna",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "jej",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 12,
-          name: {
-            firstName: "Johan",
-            lastName: "Johansen",
-          },
-          time: {
-            hours: 3,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 13,
-          name: {
-            firstName: "Jenny",
-            lastName: "Hansen",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 14,
-          name: {
-            firstName: "Roar",
-            lastName: "Elvisen",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 15,
-          name: {
-            firstName: "Grete",
-            lastName: "Grenna",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 16,
-          name: {
-            firstName: "Ronny",
-            lastName: "hansen",
-          },
-          time: {
-            hours: 4,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 17,
-          name: {
-            firstName: "Roy",
-            lastName: "Hansen",
-          },
-          time: {
-            hours: 0,
-            min: 45,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        },
-        {
-          id: 18,
-          name: {
-            firstName: "Olga",
-            lastName: "Pettersen",
-          },
-          time: {
-            hours: 7,
-            min: 15,
-          },
-          workAddress: {
-            postNr: 3132,
-            streetName: "Moss",
-            streetNr: 23,
-          },
-          description: "Something",
-        }
-      ]);
+      hours: 1,
+      min: 20,
+      workAddress: {
+        postNr: 3131,
+        streetName: "hjulveien",
+        streetNr: 32,
+      },
+      description: "developing table",
+    },
+    {
+      id: 2,
+      firstName: "Grete",
+      lastName: "Grenna",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "jej",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 3,
+      firstName: "Johan",
+      lastName: "Johansen",
+      hours: 3,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 4,
+      firstName: "Jenny",
+      lastName: "Hansen",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 5,
+      firstName: "Roar",
+      lastName: "Elvisen",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 6,
+      firstName: "Grete",
+      lastName: "Grenna",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 7,
+      firstName: "Ronny",
+      lastName: "hansen",
+      hours: 4,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 8,
+      firstName: "Roy",
+      lastName: "Hansen",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 9,
+      firstName: "Olga",
+      lastName: "Pettersen",
+      hours: 7,
+      min: 15,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 10,
+      firstName: "Bjørn",
+      lastName: "Sveia",
+      hours: 1,
+      min: 20,
+      workAddress: {
+        postNr: 3131,
+        streetName: "hjulveien",
+        streetNr: 32,
+      },
+      description: "developing table",
+    },
+    {
+      id: 11,
+      firstName: "Grete",
+      lastName: "Grenna",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "jej",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 12,
+      firstName: "Johan",
+      lastName: "Johansen",
+      hours: 3,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 13,
+      firstName: "Jenny",
+      lastName: "Hansen",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 14,
+      firstName: "Roar",
+      lastName: "Elvisen",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 15,
+      firstName: "Grete",
+      lastName: "Grenna",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 16,
+      firstName: "Ronny",
+      lastName: "hansen",
+      hours: 4,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 17,
+      firstName: "Roy",
+      lastName: "Hansen",
+      hours: 0,
+      min: 45,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+    {
+      id: 18,
+      firstName: "Olga",
+      lastName: "Pettersen",
+      hours: 7,
+      min: 15,
+      workAddress: {
+        postNr: 3132,
+        streetName: "Moss",
+        streetNr: 23,
+      },
+      description: "Something",
+    },
+  ]);
 
   return (
     <DataContext.Provider
-      value={
-        {
-           timeSheets,
-           setTimeSheets
-        }
-      }>
+      value={{
+        timeSheets,
+        setTimeSheets,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );
 };
-
- 

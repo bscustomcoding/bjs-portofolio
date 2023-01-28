@@ -1,6 +1,6 @@
 import React, {createContext, useState} from 'react';
 import { createTheme } from '@mui/material/styles';
-import { green } from '@mui/material/colors';
+import { green, red } from '@mui/material/colors';
 
 export const TheemeContext = createContext();
 
@@ -14,7 +14,8 @@ export const TheemeProvider= ({children}) => {
       mode: darkMode ? 'dark' : 'light',
       customHeader: {
         primary: darkMode ? green[600] : green[300]
-      }
+      },
+      customDelete: darkMode ? red[700] : red[400]
     },
   })
 
