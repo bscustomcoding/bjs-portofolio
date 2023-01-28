@@ -59,7 +59,7 @@ export default function MainScreen() {
         <Toolbar />
         <Box sx={{ overflow: 'auto', height: '90vh' }}>
           <List >
-              <ListItem  disablePadding>
+              <ListItem>
                 <ListItemButton onClick={() => navigate("")}>
                   <ListItemIcon>
                     <PersonIcon />
@@ -68,7 +68,7 @@ export default function MainScreen() {
                 </ListItemButton>
               </ListItem>
               <Divider />
-              <ListItem disablePadding>
+              <ListItem>
                 <ListItemButton onClick={() => navigate("time-sheet")}>
                   <ListItemIcon>
                     <PendingActionsIcon />
