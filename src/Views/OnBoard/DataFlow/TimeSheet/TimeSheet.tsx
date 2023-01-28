@@ -16,20 +16,15 @@ export default function TimeSheet() {
   const [timeDialogOpen, setTimeDialogOpen] = React.useState(false);
   const { timeSheets, setTimeSheets } = React.useContext(DataContext);
 
-  const openDialog = (props?: any) => {
-    return <TimeDialog
-    open={timeDialogOpen}
-    formProps={props && props}
-    closeDialog={() => setTimeDialogOpen(false)}
-    submitForm={(formState: any) =>
-      setTimeSheets([...timeSheets, formState])
-    }
-  />
-  }
-
   return (
     <>
-      { openDialog() }
+      <TimeDialog
+        open={timeDialogOpen}
+        closeDialog={() => setTimeDialogOpen(false)}
+        submitForm={(formState: any) =>
+          setTimeSheets([...timeSheets, formState])
+        }
+      />
       <Card sx={{ maxHeight: "88vh", width: "75vw" }}>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <IconButton
@@ -45,7 +40,7 @@ export default function TimeSheet() {
             <Table aria-label="simple table" stickyHeader>
               <TableHead>
                 <TableRow>
-                  <TableCell>Name</TableCell>
+                  <TableCell sortDirection={'desc'} >Name</TableCell>
                   <TableCell align="center">Time</TableCell>
                   <TableCell align="right"></TableCell>
                 </TableRow>

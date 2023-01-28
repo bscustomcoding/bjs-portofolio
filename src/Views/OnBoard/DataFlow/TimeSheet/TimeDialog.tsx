@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField/TextField";
 import * as React from "react";
 
 export const defaultTimeFormState = {
-    id: (Math.random() * 10).toString() + new Date(),
+    id: null,
     firstName: "",
     lastName: "",
     hours: 0,
@@ -29,9 +29,9 @@ export default function TimeDialog({
 }: any) {
   const [formState, setFormState] = React.useState(formProps || { ...defaultTimeFormState, workAddress: { ...defaultTimeFormState.workAddress } });
   const [formValid, setFormValid] = React.useState(true);
-  
+
   const submit = () => {
-    submitForm({ ...formState });
+    submitForm({ ...formState, id: (Math.random() * 10).toString() + new Date() });
     reset();
   };
 
