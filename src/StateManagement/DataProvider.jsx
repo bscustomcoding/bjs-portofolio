@@ -25,7 +25,7 @@ export const DataProvider= ({children}) => {
           description: "developing table",
         },
         {
-          id: 1,
+          id: 2,
           name: {
             firstName: "Grete",
             lastName: "Grenna",
@@ -42,7 +42,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 3,
           name: {
             firstName: "Johan",
             lastName: "Johansen",
@@ -59,7 +59,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 4,
           name: {
             firstName: "Jenny",
             lastName: "Hansen",
@@ -76,7 +76,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 5,
           name: {
             firstName: "Roar",
             lastName: "Elvisen",
@@ -93,7 +93,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 6,
           name: {
             firstName: "Grete",
             lastName: "Grenna",
@@ -110,7 +110,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 7,
           name: {
             firstName: "Ronny",
             lastName: "hansen",
@@ -127,7 +127,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 8,
           name: {
             firstName: "Roy",
             lastName: "Hansen",
@@ -144,7 +144,7 @@ export const DataProvider= ({children}) => {
           description: "Something",
         },
         {
-          id: 1,
+          id: 9,
           name: {
             firstName: "Olga",
             lastName: "Pettersen",
@@ -160,6 +160,159 @@ export const DataProvider= ({children}) => {
           },
           description: "Something",
         },
+        {
+          id: 10,
+          name: {
+            firstName: "Bjørn",
+            lastName: "Sveia",
+          },
+          time: {
+            hours: 1,
+            min: 20,
+          },
+          workAddress: {
+            postNr: 3131,
+            streetName: "hjulveien",
+            streetNr: 32,
+          },
+          description: "developing table",
+        },
+        {
+          id: 11,
+          name: {
+            firstName: "Grete",
+            lastName: "Grenna",
+          },
+          time: {
+            hours: 0,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "jej",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 12,
+          name: {
+            firstName: "Johan",
+            lastName: "Johansen",
+          },
+          time: {
+            hours: 3,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 13,
+          name: {
+            firstName: "Jenny",
+            lastName: "Hansen",
+          },
+          time: {
+            hours: 0,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 14,
+          name: {
+            firstName: "Roar",
+            lastName: "Elvisen",
+          },
+          time: {
+            hours: 0,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 15,
+          name: {
+            firstName: "Grete",
+            lastName: "Grenna",
+          },
+          time: {
+            hours: 0,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 16,
+          name: {
+            firstName: "Ronny",
+            lastName: "hansen",
+          },
+          time: {
+            hours: 4,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 17,
+          name: {
+            firstName: "Roy",
+            lastName: "Hansen",
+          },
+          time: {
+            hours: 0,
+            min: 45,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        },
+        {
+          id: 18,
+          name: {
+            firstName: "Olga",
+            lastName: "Pettersen",
+          },
+          time: {
+            hours: 7,
+            min: 15,
+          },
+          workAddress: {
+            postNr: 3132,
+            streetName: "Moss",
+            streetNr: 23,
+          },
+          description: "Something",
+        }
       ]);
 
   return (

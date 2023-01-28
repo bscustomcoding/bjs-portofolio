@@ -27,21 +27,21 @@ import TimeSheet from '../DataFlow/TimeSheet/TimeSheet';
 import { DataProvider } from '../../../StateManagement/DataProvider';
 
 
-const drawerWidth = '30vw';
+const drawerWidth = '15vw';
 
 export default function MainScreen() {
   const { darkMode, setDarkMode } = React.useContext(TheemeContext);
   const navigate = useNavigate();
   
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box>
       <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, bgcolor: 'customHeader.primary' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'center' }}>
           <Typography variant="h6" noWrap component="div">
           <SchoolIcon />  Bjs Portofolio 
           </Typography>
-          <Typography variant="h6" noWrap component="div" sx={{ position: 'absolute', right: '20px', top: '20px'}}>
+          <Typography variant="h6" noWrap component="div" sx={{ position: 'absolute', right: '20px', top: '12px'}}>
             <IconButton onClick={() => setDarkMode(!darkMode)}>
               <DarkModeIcon /> 
             </IconButton>
@@ -68,7 +68,7 @@ export default function MainScreen() {
                 </ListItemButton>
               </ListItem>
               <Divider />
-              <ListItem  disablePadding>
+              <ListItem disablePadding>
                 <ListItemButton onClick={() => navigate("time-sheet")}>
                   <ListItemIcon>
                     <PendingActionsIcon />
@@ -80,7 +80,7 @@ export default function MainScreen() {
           <Divider />
         </Box>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh' }}>
+      <Box component="main" sx={{ flexGrow: 1, pt: 2, height: '100vh' }}>
         <Toolbar/>
         <DataProvider>
         <Routes>

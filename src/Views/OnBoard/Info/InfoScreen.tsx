@@ -7,7 +7,7 @@ export const InfoPage = () => {
     <Container>
        <CssBaseline />
       <Typography
-        variant="h1"
+        variant="h2"
         sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
       >
         Welcome to my Portofolio
