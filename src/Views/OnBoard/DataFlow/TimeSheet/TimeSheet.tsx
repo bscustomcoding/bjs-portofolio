@@ -33,7 +33,6 @@ export default function TimeSheet() {
                   <TableCell sortDirection={"desc"}>Name</TableCell>
                   <TableCell align="center">Time</TableCell>
                   <TableCell align="right"></TableCell>
-                  <TableCell align="right"></TableCell>
                 </TableRow>
               </TableHead>
 
@@ -51,15 +50,18 @@ export default function TimeSheet() {
                     </TableCell>
                     <TableCell align="right">
                       <TimeDialog
-                      formProps={row}
-                      submitForm={(formState: any) =>
-                        setTimeSheets(timeSheets.map((sheet: any) => {
-                         return sheet.id === formState.id ? formState : sheet 
-                        }))
-                      }
+                        formProps={row}
+                        submitForm={(formState: any) =>
+                          setTimeSheets(
+                            timeSheets.map((sheet: any) => {
+                              return sheet.id === formState.id
+                                ? formState
+                                : sheet;
+                            })
+                          )
+                        }
                       />
-                    </TableCell>
-                    <TableCell align="right">
+
                       <IconButton
                         onClick={() =>
                           setTimeSheets(
