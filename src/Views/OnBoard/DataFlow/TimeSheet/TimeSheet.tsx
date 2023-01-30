@@ -1,5 +1,5 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Card, IconButton, TablePagination } from "@mui/material";
+import { Box, Card, IconButton, TablePagination } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import * as React from "react";
 import { DataContext } from "../../../../StateManagement/DataProvider";
+import { TimeSheetInterface } from "../../../../StateManagement/Interfaces/Infaces";
 import TimeDialog from "./TimeDialog";
 
 export default function TimeSheet() {
@@ -16,14 +17,14 @@ export default function TimeSheet() {
 
   return (
     <>
-      <Card sx={{ maxHeight: "87vh", width: "100%" }}>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <Card sx={{ maxHeight: "87vh", width: "100%", minWidth: 450 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", pt: 1 }}>
           <TimeDialog
-            submitForm={(formState: any) =>
+            submitForm={(formState: TimeSheetInterface) =>
               setTimeSheets([...timeSheets, formState])
             }
           />
-        </div>
+        </Box>
 
         <CardContent sx={{ width: "100%", maxHeight: "80vh" }}>
           <TableContainer sx={{ maxHeight: "72vh", width: "100%" }}>
@@ -37,7 +38,7 @@ export default function TimeSheet() {
               </TableHead>
 
               <TableBody>
-                {timeSheets.map((row: any, index: number) => (
+                {timeSheets.map((row: TimeSheetInterface, index: number) => (
                   <TableRow
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -51,9 +52,9 @@ export default function TimeSheet() {
                     <TableCell align="right">
                       <TimeDialog
                         formProps={row}
-                        submitForm={(formState: any) =>
+                        submitForm={(formState: TimeSheetInterface) =>
                           setTimeSheets(
-                            timeSheets.map((sheet: any) => {
+                            timeSheets.map((sheet: TimeSheetInterface) => {
                               return sheet.id === formState.id
                                 ? formState
                                 : sheet;
@@ -61,12 +62,11 @@ export default function TimeSheet() {
                           )
                         }
                       />
-
                       <IconButton
                         onClick={() =>
                           setTimeSheets(
                             timeSheets.filter(
-                              (sheet: any) => sheet.id !== row.id
+                              (sheet: TimeSheetInterface) => sheet.id !== row.id
                             )
                           )
                         }
