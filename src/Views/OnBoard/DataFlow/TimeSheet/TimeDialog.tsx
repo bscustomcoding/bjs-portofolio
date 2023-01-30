@@ -5,6 +5,8 @@ import DialogContent from "@mui/material/DialogContent/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle/DialogTitle";
 import TextField from "@mui/material/TextField/TextField";
+import MoreTimeIcon from "@mui/icons-material/MoreTime";
+import EditIcon from "@mui/icons-material/Edit";
 import * as React from "react";
 
 export const defaultTimeFormState = {
@@ -22,27 +24,35 @@ export const defaultTimeFormState = {
   }
 
 export default function TimeDialog({
-  open,
-  closeDialog,
   submitForm,
   formProps,
 }: any) {
   const [formState, setFormState] = React.useState(formProps || { ...defaultTimeFormState, workAddress: { ...defaultTimeFormState.workAddress } });
   const [formValid, setFormValid] = React.useState(true);
+  const [openDialog, setOpenDialog] = React.useState(false)
 
   const submit = () => {
-    submitForm({ ...formState, id: (Math.random() * 10).toString() + new Date() });
+    submitForm({ ...formState, ...(!formProps && {id: (Math.random() * 10).toString() + new Date() })});
     reset();
   };
 
   const reset = () => {
-    setFormState(defaultTimeFormState);
-    closeDialog();
+    if (!formProps) {
+      setFormState(defaultTimeFormState);
+    } 
+    
+    setOpenDialog(false)
   };
 
   return (
     <>
-      <Dialog open={open} onClose={closeDialog}>
+      <Button
+        onClick={() => setOpenDialog(true)}
+      >
+        {formProps ? <EditIcon /> : <MoreTimeIcon />}
+      </Button>
+
+      <Dialog open={openDialog} onClose={reset}>
         <DialogTitle>Time Sheet</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -56,6 +66,7 @@ export default function TimeDialog({
             type="text"
             fullWidth
             variant="standard"
+            value={formState.firstName}
             onChange={(event) =>
               setFormState({ ...formState, firstName: event.target.value })
             }
@@ -68,6 +79,7 @@ export default function TimeDialog({
             type="text"
             fullWidth
             variant="standard"
+            value={formState.lastName}
             onChange={(event) =>
               setFormState({ ...formState, lastName: event.target.value })
             }
@@ -81,6 +93,7 @@ export default function TimeDialog({
               type="number"
               fullWidth
               variant="standard"
+              value={formState.hours}
               onChange={(event) =>
                 setFormState({ ...formState, hours: parseInt(event.target.value) })
               }
@@ -93,6 +106,7 @@ export default function TimeDialog({
               type="number"
               fullWidth
               variant="standard"
+              value={formState.min}
               onChange={(event) =>
                 setFormState({ ...formState, min: parseInt(event.target.value) })
               }
@@ -100,7 +114,7 @@ export default function TimeDialog({
           </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => closeDialog()}>Cancel</Button>
+          <Button onClick={() => reset()}>Cancel</Button>
           <Button 
           disabled={!formValid}
           onClick={() => submit()}>Confirm</Button>

@@ -1,5 +1,4 @@
 import DeleteIcon from "@mui/icons-material/Delete";
-import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import { Card, IconButton, TablePagination } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Table from "@mui/material/Table";
@@ -13,41 +12,33 @@ import { DataContext } from "../../../../StateManagement/DataProvider";
 import TimeDialog from "./TimeDialog";
 
 export default function TimeSheet() {
-  const [timeDialogOpen, setTimeDialogOpen] = React.useState(false);
   const { timeSheets, setTimeSheets } = React.useContext(DataContext);
 
   return (
     <>
-      <TimeDialog
-        open={timeDialogOpen}
-        closeDialog={() => setTimeDialogOpen(false)}
-        submitForm={(formState: any) =>
-          setTimeSheets([...timeSheets, formState])
-        }
-      />
       <Card sx={{ maxHeight: "87vh", width: "100%" }}>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <IconButton
-            sx={{ fontSize: "40px", mr: 1.5, mt: 1.5 }}
-            onClick={() => setTimeDialogOpen(true)}
-          >
-            <MoreTimeIcon />
-          </IconButton>
+          <TimeDialog
+            submitForm={(formState: any) =>
+              setTimeSheets([...timeSheets, formState])
+            }
+          />
         </div>
 
-        <CardContent sx={{ width: '100%', maxHeight: '80vh' }}>
+        <CardContent sx={{ width: "100%", maxHeight: "80vh" }}>
           <TableContainer sx={{ maxHeight: "72vh", width: "100%" }}>
             <Table aria-label="simple table" stickyHeader>
               <TableHead>
                 <TableRow>
-                  <TableCell sortDirection={'desc'} >Name</TableCell>
+                  <TableCell sortDirection={"desc"}>Name</TableCell>
                   <TableCell align="center">Time</TableCell>
+                  <TableCell align="right"></TableCell>
                   <TableCell align="right"></TableCell>
                 </TableRow>
               </TableHead>
 
               <TableBody>
-                {timeSheets.map((row: any) => (
+                {timeSheets.map((row: any, index: number) => (
                   <TableRow
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -57,6 +48,16 @@ export default function TimeSheet() {
                     </TableCell>
                     <TableCell align="center">
                       {row.hours}h - {row.min}m
+                    </TableCell>
+                    <TableCell align="right">
+                      <TimeDialog
+                      formProps={row}
+                      submitForm={(formState: any) =>
+                        setTimeSheets(timeSheets.map((sheet: any) => {
+                         return sheet.id === formState.id ? formState : sheet 
+                        }))
+                      }
+                      />
                     </TableCell>
                     <TableCell align="right">
                       <IconButton
