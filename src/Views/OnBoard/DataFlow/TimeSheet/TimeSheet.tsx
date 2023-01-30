@@ -25,7 +25,7 @@ export default function TimeSheet() {
           setTimeSheets([...timeSheets, formState])
         }
       />
-      <Card sx={{ maxHeight: "88vh", width: "75vw" }}>
+      <Card sx={{ maxHeight: "87vh", width: "100%" }}>
         <div style={{ display: "flex", justifyContent: "flex-end" }}>
           <IconButton
             sx={{ fontSize: "40px", mr: 1.5, mt: 1.5 }}
@@ -35,8 +35,8 @@ export default function TimeSheet() {
           </IconButton>
         </div>
 
-        <CardContent>
-          <TableContainer sx={{ maxHeight: "75vh", width: "73vw" }}>
+        <CardContent sx={{ width: '100%', maxHeight: '80vh' }}>
+          <TableContainer sx={{ maxHeight: "72vh", width: "100%" }}>
             <Table aria-label="simple table" stickyHeader>
               <TableHead>
                 <TableRow>
