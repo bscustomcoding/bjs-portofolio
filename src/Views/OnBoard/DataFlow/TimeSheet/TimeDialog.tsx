@@ -32,15 +32,6 @@ export default function TimeDialog({
   const [formValid, setFormValid] = React.useState<boolean>(true);
   const [openDialog, setOpenDialog] = React.useState<boolean>(false)
 
-  React.useEffect(() => {
-    console.log('yooo');
-    
-    return () => {
-      console.log('by bye');
-      
-    }
-  }, [])
-
   const submit = () => {
     submitForm({ ...formState, ...(!formProps && {id: (Math.random() * 10).toString() + new Date() })});
     reset();
