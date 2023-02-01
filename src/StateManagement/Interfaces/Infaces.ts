@@ -11,3 +11,5 @@ export interface TimeSheetInterface {
     },
     description: string;
 }
+
+export type ChildrenProps = { children: React.ReactNode; }

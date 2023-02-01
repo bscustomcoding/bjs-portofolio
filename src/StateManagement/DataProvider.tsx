@@ -1,9 +1,17 @@
 import React, { createContext } from "react";
+import { ChildrenProps, TimeSheetInterface } from "./Interfaces/Infaces";
 
-export const DataContext = createContext();
 
-export const DataProvider = ({ children }) => {
-  const [timeSheets, setTimeSheets] = React.useState([
+
+type TimeSheetContextType = {
+  timeSheets: Array<TimeSheetInterface>;
+  setTimeSheets: React.Dispatch<React.SetStateAction<Array<TimeSheetInterface>>>;
+}
+
+export const DataContext = createContext({} as TimeSheetContextType);
+
+export const DataProvider = ({ children }: ChildrenProps) => {
+  const [timeSheets, setTimeSheets] = React.useState<Array<TimeSheetInterface>>([
     {
       id: 1,
       firstName: "Bjørn",

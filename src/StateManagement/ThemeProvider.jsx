@@ -2,6 +2,31 @@ import React, {createContext, useState} from 'react';
 import { createTheme } from '@mui/material/styles';
 import { green, red } from '@mui/material/colors';
 
+// export {};
+// declare module '@mui/material/styles' {
+//   interface Theme {
+//     mode: PaletteMode;
+//     customHeader: {
+//       primary: string;
+//     };
+//     customDelete: string;
+//   }
+
+//  interface ThemeOptions {
+//     mode?: PaletteMode | undefined;
+//     customHeader?: {
+//       primary?: string;
+//     };
+//     customDelete?: string;
+//   }
+// }
+
+// interface ThemeProps {
+//   theme: ThemeOptions;
+//   darkMode: boolean;
+//   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+// }
+
 export const TheemeContext = createContext();
 
 
