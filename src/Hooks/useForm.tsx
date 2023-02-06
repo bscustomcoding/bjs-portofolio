@@ -1,21 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { checkForKeyValue } from "../globalFunctions/pedicrates";
 
-function useForm(state: any) {
+function useForm(state: any, conditionList: Array<string>) {
   const [formState, setFormState] = useState(state);
-  const [formValid, setFormValid] = useState(false)
+  const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    if (formState.firstName.length && formState.lastName.length) {
-        setFormValid(true);
+    if (checkForKeyValue(formState, conditionList)) {
+      setFormValid(true);
     } else {
-        setFormValid(false)
+      setFormValid(false);
     }
+  }, [formState, conditionList]);
 
-  }, [formState])
-
-  
-  
   return [formState, setFormState, formValid];
 }
 
-export default useForm
+export default useForm;

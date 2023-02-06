@@ -9,6 +9,7 @@ import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import EditIcon from "@mui/icons-material/Edit";
 import * as React from "react";
 import useForm from "../../../../Hooks/useForm";
+import { capitalizer } from "../../../../globalFunctions/converters";
 
 export const defaultTimeFormState = {
     id: null,
@@ -23,7 +24,7 @@ export default function TimeDialog({
   formProps,
 }: any) {
   const [openDialog, setOpenDialog] = React.useState<boolean>(false);
-  const [ formState, setFormState, formValid]  = useForm(formProps || { ...defaultTimeFormState });
+  const [ formState, setFormState, formValid]  = useForm(formProps || { ...defaultTimeFormState }, ['id', 'hours', 'min']);
 
   const submit = () => {
     submitForm({ ...formState, ...(!formProps && {id: (Math.random() * 10).toString() + new Date() })});
@@ -62,7 +63,7 @@ export default function TimeDialog({
             variant="standard"
             value={formState.firstName}
             onChange={(event) =>
-              setFormState({ ...formState, firstName: event.target.value })
+              setFormState({ ...formState, firstName: capitalizer(event.target.value) })
             }
           />
           <TextField
@@ -75,7 +76,7 @@ export default function TimeDialog({
             variant="standard"
             value={formState.lastName}
             onChange={(event) =>
-              setFormState({ ...formState, lastName: event.target.value })
+              setFormState({ ...formState, lastName: capitalizer(event.target.value) })
             }
           />
           <div style={{ display: "flex", flexDirection: "row" }}>
