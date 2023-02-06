@@ -1,8 +1,6 @@
 import React, { createContext } from "react";
 import { ChildrenProps, TimeSheetInterface } from "./Interfaces/Infaces";
 
-
-
 type TimeSheetContextType = {
   timeSheets: Array<TimeSheetInterface>;
   setTimeSheets: React.Dispatch<React.SetStateAction<Array<TimeSheetInterface>>>;
@@ -11,6 +9,8 @@ type TimeSheetContextType = {
 export const DataContext = createContext({} as TimeSheetContextType);
 
 export const DataProvider = ({ children }: ChildrenProps) => {
+
+  // Get data from api or in this case delivering hardcodet data
   const [timeSheets, setTimeSheets] = React.useState<Array<TimeSheetInterface>>([
     {
       id: 1,
