@@ -4,12 +4,12 @@ export interface TimeSheetInterface {
     lastName: string;
     hours: number;
     min: number;
-    workAddress: {
+    workAddress?: {
       postNr: number;
       streetName: string;
       streetNr: number;
     },
-    description: string;
+    description?: string;
 }
 
 export type ChildrenProps = { children: React.ReactNode; }

@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField/TextField";
 import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import EditIcon from "@mui/icons-material/Edit";
 import * as React from "react";
-import { TimeSheetInterface } from "../../../../StateManagement/Interfaces/Infaces";
+import useForm from "../../../../Hooks/useForm";
 
 export const defaultTimeFormState = {
     id: null,
@@ -16,21 +16,14 @@ export const defaultTimeFormState = {
     lastName: "",
     hours: 0,
     min: 0,
-    description: "",
-    workAddress: {
-      postNr: 0,
-      streetName: "",
-      streetNr: 0,
-    },
   }
 
 export default function TimeDialog({
   submitForm,
   formProps,
 }: any) {
-  const [formState, setFormState] = React.useState<TimeSheetInterface>(formProps || { ...defaultTimeFormState, workAddress: { ...defaultTimeFormState.workAddress } });
-  const [formValid, setFormValid] = React.useState<boolean>(true);
-  const [openDialog, setOpenDialog] = React.useState<boolean>(false)
+  const [openDialog, setOpenDialog] = React.useState<boolean>(false);
+  const [ formState, setFormState, formValid]  = useForm(formProps || { ...defaultTimeFormState });
 
   const submit = () => {
     submitForm({ ...formState, ...(!formProps && {id: (Math.random() * 10).toString() + new Date() })});
@@ -116,8 +109,7 @@ export default function TimeDialog({
         </DialogContent>
         <DialogActions>
           <Button onClick={() => reset()}>Cancel</Button>
-          <Button 
-          disabled={!formValid}
+          <Button disabled={!formValid}
           onClick={() => submit()}>Confirm</Button>
         </DialogActions>
       </Dialog>
