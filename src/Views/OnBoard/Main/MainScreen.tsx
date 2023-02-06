@@ -40,7 +40,7 @@ export default function MainScreen() {
       >
         <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
           <Typography variant="h6" noWrap component="div">
-            <SchoolIcon /> Bjs Portofolio
+            <SchoolIcon /> Portofolio
           </Typography>
           <Typography
             variant="h6"
