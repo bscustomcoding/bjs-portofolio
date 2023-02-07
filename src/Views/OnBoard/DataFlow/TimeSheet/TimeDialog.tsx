@@ -17,6 +17,11 @@ export const defaultTimeFormState = {
     lastName: "",
     hours: 0,
     min: 0,
+    workAddress: {
+      postNr: 3131,
+      streetName: "",
+      streetNr: 32,
+    },
   }
 
 export default function TimeDialog({
@@ -24,13 +29,13 @@ export default function TimeDialog({
   formProps,
 }: any) {
   const [openDialog, setOpenDialog] = React.useState<boolean>(false);
-  const [ formState, setFormState, formValid]  = useForm(formProps || { ...defaultTimeFormState }, ['id', 'hours', 'min']);
-
+  const [ formState, setFormState, formValid]  = useForm(formProps || { ...defaultTimeFormState, workAddress: { ...defaultTimeFormState.workAddress } }, ['id', 'hours', 'min'], 'workAddress');
+  
   const submit = () => {
     submitForm({ ...formState, ...(!formProps && {id: (Math.random() * 10).toString() + new Date() })});
     reset();
   };
-
+ 
   const reset = () => {
     if (!formProps) {
       setFormState(defaultTimeFormState);
@@ -69,7 +74,7 @@ export default function TimeDialog({
           <TextField
             autoFocus
             margin="dense"
-            id="lastNAme"
+            id="lastName"
             label="Last name"
             type="text"
             fullWidth
@@ -83,7 +88,7 @@ export default function TimeDialog({
             <TextField
               autoFocus
               margin="dense"
-              id="lastNAme"
+              id="hours"
               label="Hours"
               type="number"
               fullWidth
@@ -96,7 +101,7 @@ export default function TimeDialog({
             <TextField
               autoFocus
               margin="dense"
-              id="lastNAme"
+              id="min"
               label="Minutes"
               type="number"
               fullWidth
@@ -107,6 +112,19 @@ export default function TimeDialog({
               }
             />
           </div>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="streetName"
+            label="Streetname"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={formState.workAddress.streetName}
+            onChange={(event) =>
+              setFormState({ ...formState, workAddress: { ...formState.workAddress, streetName: capitalizer(event.target.value) }})
+            }
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => reset()}>Cancel</Button>
