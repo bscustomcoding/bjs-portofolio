@@ -14,15 +14,20 @@ export const InfoPage = () => {
       </Typography>
       <Typography
         paragraph
-        sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
+        sx={{ textAlign: 'center', color: 'primary.main' }}
       >
         Portofolio under construction. Made in React/TypeScript/Mui
       </Typography>
       <Typography
         paragraph
-        sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
+        sx={{ pl: 20, textAlign: 'start', color: 'primary.main' }}
       >
-        This app does not support mobile and ipad yet, but wil be implmented soon
+       <li>
+       App does not support mobile and ipad yet, implmented soon 
+        </li> 
+        <li>
+        App has no backend, but logic is made for future implementation.
+        </li>
       </Typography>
     </Container>
   );

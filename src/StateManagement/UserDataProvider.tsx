@@ -18,14 +18,13 @@ export const UserDataProvider = ({ children }: ChildrenProps) => {
     }
   ]);
 
+  // Later implmentation of try catch statement setting userdata if 200 A Okay on postUser | updateUser | deleteUser
   const postUser = (updatedUser: UserDataInterface) => {
     setUserData([ ...userData, updatedUser ])
   } 
-  
   const updateUser = (updatedUser: UserDataInterface) => {
     setUserData([ ...userData.map((user: UserDataInterface) => user.id === updatedUser.id ? updatedUser : user) ])
   }
-  
   const deleteUser = (updatedUser: UserDataInterface) => {
     setUserData([ ...userData.filter((user: UserDataInterface) => user.id !== updatedUser.id) ])
   } 
