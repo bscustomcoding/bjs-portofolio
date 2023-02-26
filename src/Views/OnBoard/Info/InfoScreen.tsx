@@ -7,7 +7,7 @@ export const InfoPage = () => {
     <Container>
        <CssBaseline />
       <Typography
-        variant="h2"
+        variant="h3"
         sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
       >
         Welcome to my Portofolio
@@ -16,7 +16,13 @@ export const InfoPage = () => {
         paragraph
         sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
       >
-        This is a Portofolio under construction. React/TypeScript/Mui
+        Portofolio under construction. Made in React/TypeScript/Mui
+      </Typography>
+      <Typography
+        paragraph
+        sx={{my: 4, textAlign: 'center', color: 'primary.main' }}
+      >
+        This app does not support mobile and ipad yet, but wil be implmented soon
       </Typography>
     </Container>
   );
