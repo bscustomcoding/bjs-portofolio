@@ -13,20 +13,21 @@ export const UserDataProvider = ({ children }: ChildrenProps) => {
       id: 1,
       firstName: "Bjørn",
       lastName: "Sveia",
+      age: 35,
       tlf: "+47 97725850"
     }
   ]);
 
-  const postUser = () => {
-
+  const postUser = (updatedUser: UserDataInterface) => {
+    setUserData([ ...userData, updatedUser ])
   } 
   
-  const updateUser = () => {
-    
+  const updateUser = (updatedUser: UserDataInterface) => {
+    setUserData([ ...userData.map((user: UserDataInterface) => user.id === updatedUser.id ? updatedUser : user) ])
   }
   
-  const deleteUser = () => {
-    
+  const deleteUser = (updatedUser: UserDataInterface) => {
+    setUserData([ ...userData.filter((user: UserDataInterface) => user.id !== updatedUser.id) ])
   } 
 
   const filterState = (

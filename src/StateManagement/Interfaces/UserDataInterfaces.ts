@@ -17,6 +17,7 @@ export interface UserDataInterface {
   firstName?: string;
   lastName?: string;
   tlf?: string;
+  age?: number;
   address?: {
     postNr: number;
     streetName: string;

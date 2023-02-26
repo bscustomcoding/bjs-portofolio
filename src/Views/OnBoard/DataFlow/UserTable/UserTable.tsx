@@ -12,17 +12,18 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ReplayIcon from "@mui/icons-material/Replay";
 import { ExtendedThemeContext } from "../../../../StateManagement/ExtendedThemeProvider";
 import { useNavigate } from "react-router-dom";
+import { UserDataInterface } from "../../../../StateManagement/Interfaces/UserDataInterfaces";
 
 export const UserTable = () => {
-  const { userData, updateUser, deleteUser, filterState } =
+  const { userData, updateUser, deleteUser, filterState, postUser } =
     React.useContext(UserDataContext);
   const [searchString, setSearchString] = React.useState<string>("");
-  const { theme } = React.useContext(ExtendedThemeContext);
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const navigate = useNavigate();
+//   const { theme } = React.useContext(ExtendedThemeContext);
+//   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+//   const navigate = useNavigate();
 
   const tableToolbar: TableToolbarInterface = {
-    leftCorner: <RegistrationDialog submitForm={() => {}} />,
+    leftCorner: <RegistrationDialog submitForm={postUser} />,
     middle: (
         <TextField
           id="filled-search"
@@ -55,15 +56,21 @@ export const UserTable = () => {
       alignMent: "left",
       columnType: "TEXT",
     },
+    {
+        columnTitle: "Age",
+        key: "age",
+        alignMent: "left",
+        columnType: "TEXT",
+      },
     { columnTitle: "Tlf", key: "tlf", alignMent: "left", columnType: "TEXT" },
     {
       columnTitle: "",
       alignMent: "right",
       columnType: "COMPONENT",
-      Component: (row: any) => (
+      Component: (row: UserDataInterface) => (
         <Box>
-          <RegistrationDialog formProps={row} submitForm={() => {}} />
-          <IconButton onClick={() => console.log("deleting")}>
+          <RegistrationDialog formProps={row} submitForm={(updatedUser: UserDataInterface) => updateUser(updatedUser)} />
+          <IconButton onClick={() => deleteUser(row)}>
             <DeleteIcon sx={{ color: "customDelete" }} />
           </IconButton>
         </Box>

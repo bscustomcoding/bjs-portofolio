@@ -100,7 +100,7 @@ export const RegistrationForm = ({
             fullWidth
             name="tlf"
             label="Tlf"
-            type="number"
+            type="text"
             value={formState.tlf}
             onChange={(event) =>
               setFormState({ ...formState, tlf: parseInt(event.target.value) })
