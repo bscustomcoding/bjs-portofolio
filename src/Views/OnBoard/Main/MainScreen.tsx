@@ -72,7 +72,7 @@ export default function MainScreen() {
                 <ListItemIcon>
                   <PersonIcon />
                 </ListItemIcon>
-                <ListItemText primary={"A little about me"} />
+                <ListItemText primary={"About Portofolio"} />
               </ListItemButton>
             </ListItem>
             <Divider />
