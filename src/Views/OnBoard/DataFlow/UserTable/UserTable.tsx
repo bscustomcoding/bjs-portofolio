@@ -1,4 +1,4 @@
-import { Box, IconButton, TextField } from "@mui/material";
+import { Box, IconButton, TextField, useMediaQuery } from "@mui/material";
 import React from "react";
 import {
   ColumnsInterface,
@@ -10,11 +10,16 @@ import RegistrationDialog from "../../../../GlobalComponents/RegistrationDialog"
 import { UserDataContext } from "../../../../StateManagement/UserDataProvider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReplayIcon from "@mui/icons-material/Replay";
+import { ExtendedThemeContext } from "../../../../StateManagement/ExtendedThemeProvider";
+import { useNavigate } from "react-router-dom";
 
 export const UserTable = () => {
   const { userData, updateUser, deleteUser, filterState } =
     React.useContext(UserDataContext);
   const [searchString, setSearchString] = React.useState<string>("");
+  const { theme } = React.useContext(ExtendedThemeContext);
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
 
   const tableToolbar: TableToolbarInterface = {
     leftCorner: <RegistrationDialog submitForm={() => {}} />,
@@ -78,9 +83,6 @@ export const UserTable = () => {
   return (
     <MultiTable
       state={filterState(userData, searchString)}
-      updateData={updateUser}
-      deleteData={deleteUser}
-      search={setSearchString}
       columns={columns}
       paginationSettings={pagintaionSettings}
       tableToolbar={tableToolbar}

@@ -3,7 +3,6 @@ import {
   Card,
   Container,
   TablePagination,
-  useMediaQuery,
 } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import Table from "@mui/material/Table";
@@ -13,8 +12,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { ExtendedThemeContext } from "../StateManagement/ExtendedThemeProvider";
 import {
   ArrayObjectType,
   GbComponentType,
@@ -26,26 +23,16 @@ import {
 export const MultiTable = ({
   state,
   columns,
-  pushData,
-  updateData,
-  deleteData,
+  tableRowOnClick,
   tableToolbar,
-  reload,
   paginationSettings,
 }: {
   state?: ArrayObjectType;
   columns?: Array<ColumnsInterface>;
-  search?: (searchString: string) => void;
-  pushData?: GlbObjectVoid;
-  updateData?: GlbObjectVoid;
-  deleteData?: GlbObjectVoid;
   tableToolbar?: TableToolbarInterface;
-  reload?: GlbVoid;
+  tableRowOnClick?: GlbObjectVoid
   paginationSettings?: PaginationInterface;
 }) => {
-  const { theme } = React.useContext(ExtendedThemeContext);
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const navigate = useNavigate();
 
   return (
     <Container sx={{ maxHeight: "86vh", width: "100%" }}>
@@ -76,9 +63,8 @@ export const MultiTable = ({
               <TableBody>
                 {state?.map((row: ObjectType) => (
                   <TableRow
-                    onClick={() =>
-                      mobile && navigate("/admin/register-form", { state: row })
-                    }
+                    onClick={(row: ObjectType) =>
+                      tableRowOnClick && tableRowOnClick(row)}
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
