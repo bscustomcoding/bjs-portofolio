@@ -30,7 +30,7 @@ export const UserTable = () => {
           label="Search Users"
           type="search"
           variant="standard"
-          onChange={(event) => {}}
+          onChange={(event) => setSearchString(event.target.value)}
         />
       ),
     rightCorner: (
