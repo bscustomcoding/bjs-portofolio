@@ -1,14 +1,13 @@
 import * as React from "react";
-import { TheemeContext } from "./StateManagement/ThemeProvider";
+import { ExtendedThemeContext } from "./StateManagement/ExtendedThemeProvider";
 import MainScreen from "./Views/OnBoard/Main/MainScreen";
 import { Route, Routes } from "react-router-dom";
 import { Container,  ThemeProvider } from "@mui/material";
 
 function App() {
-  const { theme } = React.useContext(TheemeContext);
+  const { theme } = React.useContext(ExtendedThemeContext);
   return (
     <Container>
-    
       <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/bjs-portofolio/*" element={<MainScreen />} />

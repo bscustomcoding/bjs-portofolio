@@ -18,14 +18,16 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { DataProvider } from "../../../StateManagement/DataProvider";
-import { TheemeContext } from "../../../StateManagement/ThemeProvider";
+import { ExtendedThemeContext } from "../../../StateManagement/ExtendedThemeProvider";
+import { UserDataProvider } from "../../../StateManagement/UserDataProvider";
 import TimeSheet from "../DataFlow/TimeSheet/TimeSheet";
+import { UserTable } from "../DataFlow/UserTable/UserTable";
 import { InfoPage } from "../Info/InfoScreen";
 
 const drawerWidth = 300;
 
 export default function MainScreen() {
-  const { darkMode, setDarkMode } = React.useContext(TheemeContext);
+  const { darkMode, setDarkMode } = React.useContext(ExtendedThemeContext);
   const navigate = useNavigate();
 
   return (
@@ -75,15 +77,23 @@ export default function MainScreen() {
             </ListItem>
             <Divider />
             <ListItem>
-              <ListItemButton onClick={() => navigate("time-sheet")}>
+              <ListItemButton onClick={() => navigate("time-table")}>
                 <ListItemIcon>
                   <PendingActionsIcon />
                 </ListItemIcon>
-                <ListItemText primary={"TimeSheet"} />
+                <ListItemText primary={"Timesheet Table"} />
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemButton onClick={() => navigate("user-table")}>
+                <ListItemIcon>
+                  <PendingActionsIcon />
+                </ListItemIcon>
+                <ListItemText primary={"User Table"} />
               </ListItemButton>
             </ListItem>
           </List>
-          <Divider />
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -91,7 +101,12 @@ export default function MainScreen() {
         <DataProvider>
           <Routes>
             <Route index element={<InfoPage />} />
-            <Route path="time-sheet" element={<TimeSheet />} />
+            <Route path="time-table" element={<TimeSheet />} />
+            <Route path="user-table" element={
+             <UserDataProvider>
+               <UserTable />
+             </UserDataProvider>
+            } />
           </Routes>
         </DataProvider>
       </Box>

@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
-import { ChildrenProps, TimeSheetInterface } from "./Interfaces/Infaces";
+import { ChildrenProps } from "./Interfaces/StateManInterfaces";
+import { TimeSheetInterface } from "./Interfaces/UserDataInterfaces";
 
 type TimeSheetContextType = {
   timeSheets: Array<TimeSheetInterface>;
