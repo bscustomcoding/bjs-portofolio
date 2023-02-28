@@ -6,23 +6,14 @@ export const InfoPage = () => {
   return (
     <Container>
       <CssBaseline />
-      <Typography
-        variant="h3"
-        sx={{ my: 4, textAlign: "center", color: "primary.main" }}
-      >
-        Welcome to my Portofolio
-      </Typography>
-      <Typography paragraph sx={{ textAlign: "center", color: "primary.main" }}>
-        Portofolio under construction. Made in React/TypeScript/Mui
+      <Typography paragraph  variant="h3" sx={{ textAlign: "center", color: "warning.light" }}>
+        Portofolio under construction!
       </Typography>
       <Typography
         paragraph
         sx={{ pl: 20, textAlign: "start", color: "primary.main" }}
       >
-        <li>App does not support mobile and ipad yet, implmented soon</li>
-        <li>
-          App has no backend, but logic is made for future implementation.
-        </li>
+        <li>App containes of hardcodet data, and is not scalable yet</li>
       </Typography>
     </Container>
   );

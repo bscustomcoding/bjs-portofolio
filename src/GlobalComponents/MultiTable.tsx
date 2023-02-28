@@ -67,18 +67,18 @@ export const MultiTable = ({
                     key={row.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    {columns?.map((col: ObjectType) =>
-                      col.columnType === "TEXT" ? (
-                        <TableCell component="th" align={col.align} scope="row">
-                          {row[col.key]}
+                    {columns?.map((column: ObjectType) =>
+                      column.columnType === "TEXT" ? (
+                        <TableCell component="th" align={column.align} scope="row">
+                          {row[column.key]}
                         </TableCell>
-                      ) : col.columnType === "COMPONENT" ? (
+                      ) : column.columnType === "COMPONENT" ? (
                         <TableCell
-                          align={col.alignMent}
+                          align={column.alignMent}
                           component="th"
                           scope="row"
                         >
-                          {col.Component(row)}
+                          {column.Component(row)}
                         </TableCell>
                       ) : null
                     )}
