@@ -23,7 +23,14 @@ export const UserTable = () => {
 //   const navigate = useNavigate();
 
   const tableToolbar: TableToolbarInterface = {
-    leftCorner: <RegistrationDialog submitForm={postUser} />,
+    leftCorner: (
+      <IconButton
+        onClick={() => console.log("reloading")}
+        sx={{ marginLeft: 1.3 }}
+      >
+        <ReplayIcon />
+      </IconButton>
+    ),
     middle: (
         <TextField
           id="filled-search"
@@ -33,14 +40,7 @@ export const UserTable = () => {
           onChange={(event) => setSearchString(event.target.value)}
         />
       ),
-    rightCorner: (
-      <IconButton
-        onClick={() => console.log("reloading")}
-        sx={{ marginRight: 1.3 }}
-      >
-        <ReplayIcon />
-      </IconButton>
-    )
+    rightCorner: <RegistrationDialog submitForm={postUser} />
   };
 
   const columns: Array<ColumnsInterface> = [
